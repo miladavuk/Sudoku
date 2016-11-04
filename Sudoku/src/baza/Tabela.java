@@ -24,18 +24,15 @@ public class Tabela extends AbstractTableModel{
 	
 
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 9;
 	}
 
 	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 9;
 	}
-
-	public Object getValueAt(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		return tabelaZaPrikaz[rowIndex][columnIndex];
 	}
 
 }
