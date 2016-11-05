@@ -102,13 +102,14 @@ public class GlavniProzor extends JFrame {
 					table.getCellEditor(rowIndex, columnIndex);
 					table.editCellAt(rowIndex, columnIndex);
 					Object value =  table.getValueAt(rowIndex, columnIndex);					
-					tabelaZaPrikaz.setValueAt(value, rowIndex, columnIndex);							
+					tabelaZaPrikaz.setValueAt(value, rowIndex, columnIndex);	
+					
 				}
 			});
 			table.setCellSelectionEnabled(true);
 			table.setRowHeight(25);
 			table.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
-			table.setBackground(Color.WHITE);
+			table.setBackground(Color.ORANGE);
 			table.setForeground(new Color(0, 0, 139));
 			table.setFont(new Font("Tahoma", Font.BOLD, 16));
 			table.setPreferredSize(new Dimension(480, 18));
@@ -119,6 +120,7 @@ public class GlavniProzor extends JFrame {
 			stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 			table.setModel(new Tabela(defaultMatrica ));
 			table.setTableHeader(null);
+			
 			
 			
 			
