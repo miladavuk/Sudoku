@@ -26,7 +26,7 @@ public class Pobeda extends JDialog {
 	 * Create the dialog.
 	 */
 	public Pobeda() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Pobeda.class.getResource("/resursi/s1.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Pobeda.class.getResource("../s1.png")));
 		setResizable(false);
 		setTitle("Win");
 		setBounds(100, 100, 553, 576);
@@ -55,6 +55,8 @@ public class Pobeda extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						setVisible(false);
+						GlavniProzor gp = new GlavniProzor();
+						gp.setVisible(true);
 						
 					}
 				});

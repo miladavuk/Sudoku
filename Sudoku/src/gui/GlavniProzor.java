@@ -41,21 +41,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.ListSelectionModel;
+import java.awt.GridLayout;
 
 public class GlavniProzor extends JFrame {
 
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
-	private JTable table;
-	private char[][] defaultMatrica = {{' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '},
-									   {' ',' ',' ',' ',' ',' ',' ',' ',' '}};
+	private JTable table;	
 	private char[][] unetaMatrica;
 	private char[][] randomMatrica;
 	private JPanel panelZaDugmice;
@@ -65,6 +57,7 @@ public class GlavniProzor extends JFrame {
 	Sudoku sudoku = new Sudoku();
 	private JButton btnBegin;
 	private Tabela tabelaZaPrikaz;
+	private JLabel label;
 
 	
 	/**
@@ -115,8 +108,8 @@ public class GlavniProzor extends JFrame {
 			});
 			table.setCellSelectionEnabled(true);
 			table.setRowHeight(25);
-			table.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
-			table.setBackground(Color.ORANGE);
+			table.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));			
+			table.setBackground(Color.ORANGE);			
 			table.setForeground(new Color(0, 0, 139));
 			table.setFont(new Font("Tahoma", Font.BOLD, 16));
 			table.setPreferredSize(new Dimension(480, 18));
@@ -124,10 +117,8 @@ public class GlavniProzor extends JFrame {
 			table.setShowHorizontalLines(true);
 			DefaultTableCellRenderer stringRenderer = (DefaultTableCellRenderer)
 			table.getDefaultRenderer(String.class);
-			stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-			table.setModel(new Tabela(defaultMatrica ));
-			table.setTableHeader(null);
-			
+			stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);			
+			table.setTableHeader(null);		
 			
 			
 		}
@@ -241,4 +232,10 @@ public class GlavniProzor extends JFrame {
 	   
 	
 
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("");
+		}
+		return label;
+	}
 }
