@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 public class Pobeda extends JDialog {
 
@@ -25,6 +26,7 @@ public class Pobeda extends JDialog {
 	 * Create the dialog.
 	 */
 	public Pobeda() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Pobeda.class.getResource("/resursi/s1.png")));
 		setResizable(false);
 		setTitle("Win");
 		setBounds(100, 100, 553, 576);

@@ -2,14 +2,17 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import baza.Matrice;
@@ -22,12 +25,15 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -65,14 +71,15 @@ public class GlavniProzor extends JFrame {
 	 * Create the frame.
 	 */
 	public GlavniProzor() {
-		
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GlavniProzor.class.getResource("../s1.png")));
 		setForeground(Color.BLUE);
 		setFont(new Font("Tahoma", Font.PLAIN, 12));
 		setTitle("Sudoku");
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 292);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -123,15 +130,15 @@ public class GlavniProzor extends JFrame {
 			
 			
 			
-			
 		}
 		return table;
 	}
-	@SuppressWarnings("deprecation")
+	
 	private JPanel getPanelZaDugmice() {
 		if (panelZaDugmice == null) {
 			panelZaDugmice = new JPanel();
-			panelZaDugmice.setPreferredSize(new Dimension(120, 300));
+			panelZaDugmice.setBackground(Color.BLACK);
+			panelZaDugmice.setPreferredSize(new Dimension(125, 300));
 			panelZaDugmice.setLayout(null);
 			panelZaDugmice.add(getBtnTry());
 			panelZaDugmice.add(getBtnGiveUp());			
@@ -144,6 +151,7 @@ public class GlavniProzor extends JFrame {
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
+			panel.setBackground(Color.BLACK);
 			panel.setPreferredSize(new Dimension(500, 25));
 		}
 		return panel;
@@ -173,6 +181,7 @@ public class GlavniProzor extends JFrame {
 			});
 			btnTry.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnTry.setForeground(new Color(51, 204, 255));
+			btnTry.setBackground(Color.DARK_GRAY);
 			btnTry.setBounds(10, 113, 100, 31);
 			
 		}
@@ -192,7 +201,8 @@ public class GlavniProzor extends JFrame {
 					}
 				}
 			});
-			btnGiveUp.setForeground(new Color(204, 51, 51));
+			btnGiveUp.setForeground(Color.RED);
+			btnGiveUp.setBackground(Color.DARK_GRAY);
 			btnGiveUp.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnGiveUp.setBounds(10, 169, 100, 31);
 			
@@ -218,12 +228,17 @@ public class GlavniProzor extends JFrame {
 					
 				}
 			});
-			btnBegin.setForeground(new Color(139, 0, 139));
+			btnBegin.setForeground(Color.YELLOW);
+			btnBegin.setBackground(Color.DARK_GRAY);
 			btnBegin.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnBegin.setBounds(10, 19, 100, 31);
 		}
 		return btnBegin;
 	}
+	
+	
+	   
+	   
 	
 
 }
