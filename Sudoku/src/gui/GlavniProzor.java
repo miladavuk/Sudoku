@@ -168,7 +168,8 @@ public class GlavniProzor extends JFrame {
 							System.exit(0);
 						}
 					}
-				}
+						}
+				
 			});
 			btnTry.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnTry.setForeground(new Color(51, 204, 255));
