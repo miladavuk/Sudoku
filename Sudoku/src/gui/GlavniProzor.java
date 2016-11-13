@@ -24,6 +24,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
@@ -99,10 +101,31 @@ public class GlavniProzor extends JFrame {
 				public void mouseClicked(MouseEvent arg0) {
 					int rowIndex = table.getSelectedRow();
 					int columnIndex = table.getSelectedColumn();					
-					table.getCellEditor(rowIndex, columnIndex);
-					table.editCellAt(rowIndex, columnIndex);
-					Object value =  table.getValueAt(rowIndex, columnIndex);					
-					tabelaZaPrikaz.setValueAt(value, rowIndex, columnIndex);	
+					table.getCellEditor(rowIndex, columnIndex).addCellEditorListener(new CellEditorListener() {
+						
+						public void editingStopped(ChangeEvent arg0) {
+							int rowIndex = table.getSelectedRow();
+							int columnIndex = table.getSelectedColumn();
+							Object value =  table.getValueAt(rowIndex, columnIndex);
+							boolean ispravanUnos = sudoku.proveriUnos(value);
+							
+							if(ispravanUnos)
+							tabelaZaPrikaz.setValueAt(value, rowIndex, columnIndex);
+							else{
+								JOptionPane.showMessageDialog(contentPane,
+										"Incorrect input, only numbers 1-9 allowed", "Error",0);
+								tabelaZaPrikaz.setValueAt(' ', rowIndex, columnIndex);
+								
+								}
+						}
+						
+						public void editingCanceled(ChangeEvent arg0) {
+							// TODO Auto-generated method stub
+							
+						}
+					});
+						
+						
 					
 				}
 			});

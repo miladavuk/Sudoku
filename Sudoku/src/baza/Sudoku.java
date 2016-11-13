@@ -82,4 +82,25 @@ public class Sudoku {
 		
 	}
 
+	public boolean proveriUnos(Object value) {
+		
+		if(value instanceof String){
+			String stringValue = (String) value;
+			char [] charNiz = new char [stringValue.trim().toCharArray().length];
+			charNiz = stringValue.trim().toCharArray();		
+			char charValue = charNiz[0];
+			if(charValue=='1'||charValue=='2'||charValue=='3'||charValue=='4'||charValue=='5'
+					||charValue=='6'||charValue=='7'||charValue=='8'||charValue=='9')
+				return true;
+			}
+			else if(value instanceof Character){
+				char charValue = (Character) value;
+				if(charValue=='1'||charValue=='2'||charValue=='3'||charValue=='4'||charValue=='5'
+						||charValue=='6'||charValue=='7'||charValue=='8'||charValue=='9')
+					return true;
+			}
+
+		return false;
+	}
+
 }
