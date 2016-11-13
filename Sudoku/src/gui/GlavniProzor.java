@@ -2,48 +2,29 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-
 import baza.Matrice;
 import baza.Sudoku;
 import baza.Tabela;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
-import javax.swing.JComponent;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import javax.swing.ListSelectionModel;
-import java.awt.GridLayout;
+
 
 public class GlavniProzor extends JFrame {
 
@@ -59,9 +40,6 @@ public class GlavniProzor extends JFrame {
 	Sudoku sudoku = new Sudoku();
 	private JButton btnBegin;
 	private Tabela tabelaZaPrikaz;
-	private JLabel label;
-
-	
 	/**
 	 * Create the frame.
 	 */
@@ -113,8 +91,9 @@ public class GlavniProzor extends JFrame {
 							tabelaZaPrikaz.setValueAt(value, rowIndex, columnIndex);
 							else{
 								JOptionPane.showMessageDialog(contentPane,
-										"Incorrect input, only numbers 1-9 allowed", "Error",0);
+										"Incorrect input, only numbers 1-9 allowed!", "Error",0);								
 								tabelaZaPrikaz.setValueAt(' ', rowIndex, columnIndex);
+								return;
 								
 								}
 						}
@@ -132,7 +111,7 @@ public class GlavniProzor extends JFrame {
 			table.setCellSelectionEnabled(true);
 			table.setRowHeight(25);
 			table.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));			
-			table.setBackground(Color.ORANGE);			
+			table.setBackground(Color.ORANGE);					
 			table.setForeground(new Color(0, 0, 139));
 			table.setFont(new Font("Tahoma", Font.BOLD, 16));
 			table.setPreferredSize(new Dimension(480, 18));
@@ -140,10 +119,9 @@ public class GlavniProzor extends JFrame {
 			table.setShowHorizontalLines(true);
 			DefaultTableCellRenderer stringRenderer = (DefaultTableCellRenderer)
 			table.getDefaultRenderer(String.class);
-			stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);			
-			table.setTableHeader(null);		
-			
-			
+			stringRenderer.setHorizontalAlignment(SwingConstants.CENTER);		
+			table.setTableHeader(null);
+		
 		}
 		return table;
 	}
@@ -250,17 +228,5 @@ public class GlavniProzor extends JFrame {
 			btnBegin.setBounds(10, 19, 100, 31);
 		}
 		return btnBegin;
-	}
-	
-	
-	   
-	   
-	
-
-	private JLabel getLabel() {
-		if (label == null) {
-			label = new JLabel("");
-		}
-		return label;
 	}
 }
