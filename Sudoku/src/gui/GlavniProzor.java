@@ -211,7 +211,9 @@ public class GlavniProzor extends JFrame {
 					panelZaDugmice.add(getBtnGiveUp());
 					
 					getScrollPane().setViewportView(getTable());
-					randomMatrica = sudoku.vratiRandomMatricu();					
+					randomMatrica = sudoku.vratiRandomMatricu();	
+					Matrice mat = new Matrice();
+					mat.odstampajMatricu(randomMatrica);
 					char[][] matricaZaPrikaz = sudoku.vratiMatricuZaPrikaz(randomMatrica);
 					tabelaZaPrikaz = new Tabela(matricaZaPrikaz);
 					table.setModel(tabelaZaPrikaz);	

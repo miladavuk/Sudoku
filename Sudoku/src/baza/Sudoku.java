@@ -54,7 +54,7 @@ public class Sudoku {
 		
 		for (int i = 0; i < randomMatrica.length; i++) {
 			for (int j = 0; j < randomMatrica.length; j++) {
-				if(j%3==0){
+				if((i%2==0)&&(j%2==1)||(i%2==1 &&j%4==0)){
 					matricaZaPrikaz[i][j] = randomMatrica[i][j];
 				}
 				else matricaZaPrikaz[i][j]= ' ';

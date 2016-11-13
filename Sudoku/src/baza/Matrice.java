@@ -144,6 +144,8 @@ public class Matrice {
 	
 	public void odstampajMatricu(char [][] matrica){
 		
+		System.out.println("MATRICA:");
+		
 		for (int i = 0; i < matrica.length; i++) {
 			for (int j = 0; j < matrica.length; j++) {
 				
